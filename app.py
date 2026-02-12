@@ -19,7 +19,7 @@ URL_VOEUX_ASSO = "https://docs.google.com/spreadsheets/d/1bO6xNI1wOfupyzbK3zBZYL
 def run_matching(sessions_input, date_voeux, heure_voeux):
 
     # -----------------------------
-    # 1️⃣ Charger les cooptations
+    # 1️⃣ Charger cooptations
     # -----------------------------
     df = pd.read_excel(URL_COOPTATIONS)
 
@@ -40,7 +40,7 @@ def run_matching(sessions_input, date_voeux, heure_voeux):
     df_filtre = df[df['DateHeure'].apply(est_dans_session)]
 
     # -----------------------------
-    # Cutoff voeux
+    # Cutoff global
     # -----------------------------
     cutoff_voeux = pd.to_datetime(f"{date_voeux} {heure_voeux}")
 
@@ -184,23 +184,38 @@ def run_matching(sessions_input, date_voeux, heure_voeux):
 
 
 # =============================
-# 🌐 INTERFACE WEB
+# 🌐 INTERFACE
 # =============================
 
-st.title("Matching Cooptations")
+st.title("Plateforme Matching Cooptations")
+
+st.header("Sessions de cooptation")
 
 nb_sessions = st.number_input("Nombre de sessions", min_value=1, step=1)
 
 sessions_input = []
+
 for i in range(nb_sessions):
     st.subheader(f"Session {i+1}")
-    jour = st.date_input("Jour", key=f"date{i}")
-    entree = st.time_input("Heure entrée", key=f"entree{i}")
-    sortie = st.time_input("Heure sortie", key=f"sortie{i}")
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        jour = st.date_input("Jour", key=f"date{i}")
+    with col2:
+        entree = st.time_input("Heure entrée", key=f"entree{i}")
+    with col3:
+        sortie = st.time_input("Heure sortie", key=f"sortie{i}")
+
     sessions_input.append((jour, entree, sortie))
 
-date_voeux = st.date_input("Date limite des voeux")
-heure_voeux = st.time_input("Heure limite des voeux")
+st.header("Date limite des vœux")
+
+col1, col2 = st.columns(2)
+
+with col1:
+    date_voeux = st.date_input("Date limite")
+with col2:
+    heure_voeux = st.time_input("Heure limite")
 
 if st.button("Lancer le matching"):
     with st.spinner("Matching en cours..."):
@@ -223,3 +238,4 @@ if st.button("Lancer le matching"):
         dicos_file,
         file_name="export_dicos.xlsx"
     )
+
