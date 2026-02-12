@@ -4,44 +4,6 @@ from matching.games import HospitalResident
 from datetime import datetime
 from io import BytesIO
 
-st.set_page_config(
-    page_title="Matching Cooptations",
-    page_icon="🎯",
-    layout="wide"
-)
-
-# 🎨 STYLE CSS : fond de page bleu
-st.markdown(
-    """
-    <style>
-    /* Fond de la page */
-    .block-container {
-        background-color: #1E90FF;  /* bleu */
-        color: white;
-        padding: 2rem;
-    }
-    
-    /* Titres en blanc */
-    h1, h2, h3, h4, h5, h6 {
-        color: white;
-    }
-
-    /* Boutons bleu foncé pour contraste */
-    div.stButton > button {
-        background-color: #0B3D91;
-        color: white;
-    }
-
-    /* Inputs avec texte noir pour contraste */
-    input, .stDateInput input, .stTimeInput input {
-        background-color: #63B8FF;
-        color: black;
-        border: 1px solid white;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 # =============================
 # 🔗 LIENS GOOGLE SHEETS
@@ -251,6 +213,7 @@ if st.button("Lancer le matching"):
     st.success("Matching terminé !")
     st.download_button("Télécharger export_cooptes.xlsx", cooptes_file, file_name="export_cooptes.xlsx")
     st.download_button("Télécharger export_dicos.xlsx", dicos_file, file_name="export_dicos.xlsx")
+
 
 
 
