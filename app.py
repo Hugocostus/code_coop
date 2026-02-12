@@ -5,6 +5,44 @@ from datetime import datetime
 from io import BytesIO
 
 # =============================
+# 🌐 CONFIGURATION PAGE & THÈME
+# =============================
+st.set_page_config(
+    page_title="Matching Cooptations",
+    page_icon="🎯",
+    layout="wide"
+)
+
+# =============================
+# 🎨 STYLE CSS PERSONNALISÉ : FOND NOIR + BLEU
+# =============================
+st.markdown(
+    """
+    <style>
+    /* Fond noir global */
+    .main {background-color: #0B0B0B; color: white;}
+    
+    /* Titres bleu */
+    h1, h2, h3, h4, h5, h6 {color: #1E90FF;}
+    
+    /* Boutons bleu avec texte blanc */
+    div.stButton > button {
+        background-color: #1E90FF;
+        color: white;
+    }
+    
+    /* Inputs sombres avec bord bleu */
+    input, .stDateInput input, .stTimeInput input {
+        background-color: #121212;
+        color: white;
+        border: 1px solid #1E90FF;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# =============================
 # 🔗 LIENS GOOGLE SHEETS
 # =============================
 URL_COOPTATIONS = "https://docs.google.com/spreadsheets/d/1rxGm0HY-8hghBFIPiZf0TNlk9XcxwBraoj77-kOLXjI/export?format=xlsx"
@@ -212,4 +250,5 @@ if st.button("Lancer le matching"):
     st.success("Matching terminé !")
     st.download_button("Télécharger export_cooptes.xlsx", cooptes_file, file_name="export_cooptes.xlsx")
     st.download_button("Télécharger export_dicos.xlsx", dicos_file, file_name="export_dicos.xlsx")
+
 
