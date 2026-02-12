@@ -4,36 +4,37 @@ from matching.games import HospitalResident
 from datetime import datetime
 from io import BytesIO
 
-# =============================
-# 🌐 CONFIGURATION PAGE & THÈME
-# =============================
 st.set_page_config(
     page_title="Matching Cooptations",
     page_icon="🎯",
     layout="wide"
 )
 
-# =============================
-# 🎨 STYLE CSS PERSONNALISÉ : FOND BLEU + TEXTE BLANC
-# =============================
+# 🎨 STYLE CSS : fond de page bleu
 st.markdown(
     """
     <style>
-    /* Fond bleu global */
-    .main {background-color: #1E90FF; color: white;}
-    
-    /* Titres blanc pour contraste */
-    h1, h2, h3, h4, h5, h6 {color: white;}
-    
-    /* Boutons foncé pour contraste */
-    div.stButton > button {
-        background-color: #0B3D91; /* bleu foncé */
+    /* Fond de la page */
+    .block-container {
+        background-color: #1E90FF;  /* bleu */
         color: white;
+        padding: 2rem;
     }
     
-    /* Inputs clairs avec bord blanc */
+    /* Titres en blanc */
+    h1, h2, h3, h4, h5, h6 {
+        color: white;
+    }
+
+    /* Boutons bleu foncé pour contraste */
+    div.stButton > button {
+        background-color: #0B3D91;
+        color: white;
+    }
+
+    /* Inputs avec texte noir pour contraste */
     input, .stDateInput input, .stTimeInput input {
-        background-color: #63B8FF; /* bleu clair */
+        background-color: #63B8FF;
         color: black;
         border: 1px solid white;
     }
@@ -41,6 +42,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 # =============================
 # 🔗 LIENS GOOGLE SHEETS
 # =============================
@@ -249,6 +251,7 @@ if st.button("Lancer le matching"):
     st.success("Matching terminé !")
     st.download_button("Télécharger export_cooptes.xlsx", cooptes_file, file_name="export_cooptes.xlsx")
     st.download_button("Télécharger export_dicos.xlsx", dicos_file, file_name="export_dicos.xlsx")
+
 
 
 
