@@ -14,34 +14,33 @@ st.set_page_config(
 )
 
 # =============================
-# 🎨 STYLE CSS PERSONNALISÉ : FOND NOIR + BLEU
+# 🎨 STYLE CSS PERSONNALISÉ : FOND BLEU + TEXTE BLANC
 # =============================
 st.markdown(
     """
     <style>
-    /* Fond noir global */
-    .main {background-color: #0B0B0B; color: white;}
+    /* Fond bleu global */
+    .main {background-color: #1E90FF; color: white;}
     
-    /* Titres bleu */
-    h1, h2, h3, h4, h5, h6 {color: #1E90FF;}
+    /* Titres blanc pour contraste */
+    h1, h2, h3, h4, h5, h6 {color: white;}
     
-    /* Boutons bleu avec texte blanc */
+    /* Boutons foncé pour contraste */
     div.stButton > button {
-        background-color: #1E90FF;
+        background-color: #0B3D91; /* bleu foncé */
         color: white;
     }
     
-    /* Inputs sombres avec bord bleu */
+    /* Inputs clairs avec bord blanc */
     input, .stDateInput input, .stTimeInput input {
-        background-color: #121212;
-        color: white;
-        border: 1px solid #1E90FF;
+        background-color: #63B8FF; /* bleu clair */
+        color: black;
+        border: 1px solid white;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
-
 # =============================
 # 🔗 LIENS GOOGLE SHEETS
 # =============================
@@ -250,5 +249,6 @@ if st.button("Lancer le matching"):
     st.success("Matching terminé !")
     st.download_button("Télécharger export_cooptes.xlsx", cooptes_file, file_name="export_cooptes.xlsx")
     st.download_button("Télécharger export_dicos.xlsx", dicos_file, file_name="export_dicos.xlsx")
+
 
 
