@@ -154,6 +154,7 @@ def run_matching(sessions_input, date_voeux, heure_voeux):
     for col in df_cooptes.columns[1:]:
         df_cooptes[col] = df_cooptes[col].astype(str)
         df_cooptes[col] = df_cooptes[col].map(mapping_numero_prenom).fillna(df_cooptes[col])
+        df_cooptes = df_cooptes.replace("None", "")
 
     # -----------------------------
     # Export en mémoire
@@ -211,3 +212,4 @@ if st.button("Lancer le matching"):
     st.success("Matching terminé !")
     st.download_button("Télécharger export_cooptes.xlsx", cooptes_file, file_name="export_cooptes.xlsx")
     st.download_button("Télécharger export_dicos.xlsx", dicos_file, file_name="export_dicos.xlsx")
+
