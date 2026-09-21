@@ -8,9 +8,9 @@ from io import BytesIO
 # =============================
 # 🔗 LIENS GOOGLE SHEETS
 # =============================
-URL_COOPTATIONS = "https://docs.google.com/spreadsheets/d/1rxGm0HY-8hghBFIPiZf0TNlk9XcxwBraoj77-kOLXjI/export?format=xlsx"
-URL_VOEUX_ETUDIANTS = "https://docs.google.com/spreadsheets/d/1hxTFNoBHznWh408UwHM6dy6csJbvcEv-q4odBIy-5Ck/export?format=xlsx"
-URL_VOEUX_ASSO = "https://docs.google.com/spreadsheets/d/1bO6xNI1wOfupyzbK3zBZYLbSeTcXgPpeT0puLArzCZs/export?format=xlsx"
+URL_COOPTATIONS = "https://docs.google.com/spreadsheets/d/1D1DSeJhV_KOAG7sKblfneWAFyiQbqcDE1FtK4YB_Fmo/export?format=xlsx"
+URL_VOEUX_ETUDIANTS = "https://docs.google.com/spreadsheets/d/1oUdR14814s5J_Zhhef00tp_uiLk5fX4ww7AfONVfhG4/export?format=xlsx"
+URL_VOEUX_ASSO = "https://docs.google.com/spreadsheets/d/1c7mrDXvjh4QUkaMOi2lX-tXHVgqzFUvd27ku90U1mO8/export?format=xlsx"
 
 # =============================
 # 🎯 FONCTION PRINCIPALE
